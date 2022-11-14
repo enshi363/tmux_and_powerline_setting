@@ -1,2 +1,4 @@
-# tmux-powerline
-tmux&amp;powerline 配置
+# mac os 
+
+```
+```
