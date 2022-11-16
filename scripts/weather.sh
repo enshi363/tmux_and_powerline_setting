@@ -3,6 +3,12 @@
 weather_info(){
   local tmp_file="${HOME}/.cache/tmux_weather.txt"
   local weather 
+  if [ "$TMUX_WEATHER_LOCATION" = "" ]; then
+    TMUX_WEATHER_LOCATION="Shanghai"
+  fi
+  if [ "$TMUX_WEATHER_LANG" = "" ]; then
+    TMUX_WEATHER_LANG="zh-cn"
+  fi
   if [ -f "$tmp_file" ]; then
     last_update=$(stat -c '%Y'  ${tmp_file}) 
     time_now=$(date +%s)
@@ -14,7 +20,7 @@ weather_info(){
     fi
   fi
   if [ -z "$weather" ]; then
-    curl  -s 'https://wttr.in/Shanghai?format=%l:+%c%C+%t&period=60&lang=zh-cn' > $tmp_file
+    curl  -s "https://wttr.in/${TMUX_WEATHER_LOCATION}?format=%c%C+%t&period=60&lang=${TMUX_WEATHER_LANG}" > $tmp_file
     weather=$(cat "$tmp_file")
   fi
 
