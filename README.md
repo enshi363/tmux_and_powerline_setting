@@ -48,4 +48,4 @@ setenv -g TMUX_WEATHER_LANG en
 ```
 
 # ScreenShot
-![screenshot][./screenshot.png]
+![screenshot](./screenshot.png)
