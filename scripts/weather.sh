@@ -14,7 +14,7 @@ weather_info(){
     fi
   fi
   if [ -z "$weather" ]; then
-    curl  -s 'https://wttr.in/Shanghai?format=%l:+%c%C+%t&period=60&lang=zh-cn' > $tmp_file
+    curl  -s 'https://wttr.in/Shanghai?format=%l:+%C+%t&period=60&lang=zh-cn' > $tmp_file
     weather=$(cat "$tmp_file")
   fi
 
